@@ -1,0 +1,11 @@
+selenium==4.17.2
+tabula-py==2.9.3
+pandas==2.2.2
+numpy==1.26.4
+beautifulsoup4==4.12.3
+webdriver-manager==4.0.2
+langchain==0.3.0
+langchain-openai==0.2.1  # Updated to a newer version
+flask==3.0.3
+flask-cors==4.0.1
+openai==1.40.0

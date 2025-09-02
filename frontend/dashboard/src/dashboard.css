@@ -1,0 +1,186 @@
+/* Dashboard general styling */
+.dashboard {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #4b0082, #2e0854, #000);
+  color: white;
+  padding: 24px;
+  font-family: sans-serif;
+}
+
+/* Header section */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.header-actions {
+  display: flex;           /* ⬅ put them in a row */
+  align-items: center;
+  gap: 20px;               /* ⬅ space between items */
+}
+
+.header-actions select {
+  background: #643c8f;     /* ⬅ dark pink */
+  color: white;
+  border: none;
+  padding: 14px 20px;      /* ⬅ bigger */
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;       /* ⬅ bigger text */
+  padding: 12px 18px;
+  border-radius: 8px;
+  background:#643c8f;     /* ⬅ purple button style */
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.icon:hover {
+  background: #333366;     /* ⬅ hover darker purple */
+  transform: scale(1.05);  /* ⬅ slight grow on hover */
+}
+
+/* Card */
+.card {
+  background: #1f1f3a;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.4);
+}
+
+.card pre {
+  background: black;
+  color: #0f0;
+  padding: 12px;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
+
+.icon svg {
+  font-size: 1.5rem;     /* ⬅ bigger icons */
+}
+
+.summary-vertical {
+  display: flex;
+  flex-direction: column;   /* stack vertically */
+  gap: 50px;
+  max-width: 300px;         /* reduce width */
+  margin-bottom: 20px;
+}
+
+.kpi-card.purple {
+  background: #6e3296;      /* indigo purple */
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 220px;
+  margin-bottom: 20px;
+}
+
+.kpi-card.purple h3 {
+  font-size: 1rem;
+  color: #ddd;
+  margin-bottom: 10px;
+}
+
+.kpi-card.purple .kpi-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.kpi-card.purple .kpi-subtitle {
+  font-size: 0.85rem;
+  color: #bbb;
+}
+
+.charts-section {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.summary-boxes-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+}
+
+/* Line charts side by side */
+.line-charts {
+  display: flex;
+  gap: 20px;
+  flex: 3;
+  height: 300px;
+  margin-top: 80px;
+}
+
+.chart-card-line {
+  background: #4b145c;
+  padding: 15px;
+  border-radius: 12px;
+  flex: 1;              /* allow them to expand equally */
+  min-width: 650px;     /* 👈 force a wider minimum */
+}
+
+.chart-card-bar {
+  background: #4b145c;
+  padding: 15px;
+  border-radius: 12px;
+  flex: 1;              /* allow them to expand equally */
+  min-width: 450px;     /* 👈 force a wider minimum */
+}
+
+.line-charts .chart-card {
+  flex: 1;  /* make them equal width */
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.charts-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.view-toggle {
+  margin-bottom: 10px;  /* 👈 push it above charts */
+}
+
+.trends-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;      /* space between "Trends" and dropdown */
+  margin-bottom: 20px;
+}
+
+.trends-header h2 {
+  margin: 0;
+}
+
+.trends-header label {
+  display: flex;
+  align-items: center;
+  gap: 8px;       /* space between "View:" text and dropdown */
+  font-weight: normal;
+}
