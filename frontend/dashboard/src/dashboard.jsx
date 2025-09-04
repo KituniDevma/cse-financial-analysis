@@ -8,12 +8,14 @@ import {
   ResponsiveContainer
 } from "recharts";
 import "./dashboard.css";
+import ChatBotPopup from "./chatBot"
 
 export default function Dashboard() {
   const [data, setData] = useState([]);
   const [company, setCompany] = useState("");
   const [companies, setCompanies] = useState([]);
   const [viewMode, setViewMode] = useState("Quarterly"); // "Quarterly" | "Annual"
+  const [isChatOpen, setIsChatOpen] = useState(false);
 
   useEffect(() => {
     Papa.parse("/data/clean_dataset.csv", {
@@ -102,20 +104,23 @@ export default function Dashboard() {
             ))}
           </select>
 
-          <div className="icon">
+          <div className="icon" onClick={() => window.location.href = '/trend'}>
             <MdShowChart size={22} />
             <span>Trend Comparison</span>
           </div>
 
-          <div className="icon">
+          {/* Chatbot toggle */}
+          <div className="icon" onClick={() => setIsChatOpen(!isChatOpen)}>
             <FaRobot size={22} />
             <span>Chatbot</span>
           </div>
         </div>
+        {/* Render chatbot popup */}
+        {isChatOpen && <ChatBotPopup />}
       </div>
 
       {/* --- KPI + Line Charts --- */}
-      <div className="charts-section">
+      <div className="charts-section" >
         {/* KPI Boxes */}
         <div className="summary-boxes-vertical">
           <div className="kpi-card purple">
