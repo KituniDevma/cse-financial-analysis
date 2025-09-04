@@ -7,8 +7,8 @@ import aiofiles
 from playwright.async_api import async_playwright
 
 
-TARGET_YEARS = {"2025", "2024", "2023", "2022"}  # adjust as you like
-OUT_DIR = Path("downloads")
+TARGET_YEARS = {"2025", "2024", "2023", "2022"}  
+OUT_DIR = Path("downloads/downloads")
 OUT_DIR.mkdir(exist_ok=True)
 
 
@@ -23,7 +23,7 @@ async def download_pdf(url: str, filename: Path):
                 print(f"❌ Failed to download {url} (status {resp.status})")
 
 
-async def open_cse_company(symbol: str = "DIPD.N0000", headless: bool = False):
+async def open_cse_company(symbol: str = "DIPD.N0000", headless: bool = True):
     url = f"https://www.cse.lk/pages/company-profile/company-profile.component.html?symbol={symbol}"
 
     async with async_playwright() as p:
@@ -135,7 +135,7 @@ async def open_cse_company(symbol: str = "DIPD.N0000", headless: bool = False):
             # Absolute URL via DOM (resolves relative hrefs)
             abs_url = await link.evaluate("(el) => el.href")
 
-            # Optional: filter by year found in the same table row text
+            #filter by year found in the same table row text
             row_text = await link.evaluate(
                 "(el) => (el.closest('tr')?.innerText || el.parentElement?.innerText || '')"
             )
@@ -158,7 +158,7 @@ async def open_cse_company(symbol: str = "DIPD.N0000", headless: bool = False):
 
 
 async def main():
-    # Use the two symbols from your assignment
+    # Use the two symbols 
     symbols = ["DIPD.N0000", "REXP.N0000"]
     for s in symbols:
         await open_cse_company(s, headless=True)
